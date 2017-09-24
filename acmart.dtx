@@ -202,7 +202,6 @@
 % \item \textsl{ifluatex}, \url{http://www.ctan.org/pkg/ifluatex}
 % \item \textsl{ifxetex}, \url{http://www.ctan.org/pkg/ifxetex}
 % \item \textsl{inconsolata}, \url{http://www.ctan.org/pkg/inconsolata}
-% \item \textsl{libertine}, \url{http://www.ctan.org/pkg/libertine}
 % \item \textsl{manyfoot}, \url{http://www.ctan.org/pkg/manyfoot}
 % \item \textsl{microtype}, \url{http://www.ctan.org/pkg/microtype}
 % \item \textsl{mmap}, \url{http://www.ctan.org/pkg/mmap}
@@ -210,11 +209,11 @@
 % \item \textsl{mweights}, \url{http://www.ctan.org/pkg/mweights}
 % \item \textsl{natbib}, \url{http://www.ctan.org/pkg/natbib}
 % \item \textsl{nccfoots}, \url{http://www.ctan.org/pkg/nccfoots}
-% \item \textsl{newtx}, \url{http://www.ctan.org/pkg/newtx}
 % \item \textsl{oberdiek}, \url{http://www.ctan.org/pkg/oberdiek}
 % \item \textsl{pdftex-def}, \url{http://www.ctan.org/pkg/pdftex-def}
 % \item \textsl{refcount}, \url{http://www.ctan.org/pkg/refcount}
 % \item \textsl{setspace}, \url{http://www.ctan.org/pkg/setspace}
+% \item \textsl{stix}, \url{http://www.ctan.org/pkg/stix}
 % \item \textsl{textcase}, \url{http://www.ctan.org/pkg/textcase}
 % \item \textsl{totpages}, \url{http://www.ctan.org/pkg/totpages}
 % \item \textsl{trimspaces}, \url{http://www.ctan.org/pkg/trimspaces}
@@ -1729,9 +1728,8 @@ Computing Machinery]
 %<*gobble>
 \documentclass{ltxdoc}
 \usepackage{array,booktabs,amsmath,graphicx,fancyvrb,tabularx}
-\usepackage[tt=false, type1=true]{libertine}
+\usepackage{stix}
 \usepackage[varqu]{zi4}
-\usepackage[libertine]{newtxmath}
 \usepackage[tableposition=top]{caption}
 \usepackage{hypdoc}
 \PageIndex
@@ -2768,18 +2766,16 @@ Computing Machinery]
 %
 % \begin{macro}{\if@ACM@newfonts}
 % \changes{v1.12}{2016/05/30}{Added macro}%
+% \changes{vM.mm}{2017/09/23}{Change from libertine/newtxmath to stix}
 %   Whether we load the new fonts
 %    \begin{macrocode}
 \newif\if@ACM@newfonts
 \@ACM@newfontstrue
-\IfFileExists{libertine.sty}{}{\ClassWarning{\@classname}{You do not
-    have the libertine package installed.  Please upgrade your
+\IfFileExists{stix.sty}{}{\ClassWarning{\@classname}{You do not
+    have the stix package installed.  Please upgrade your
     TeX}\@ACM@newfontsfalse}
 \IfFileExists{zi4.sty}{}{\ClassWarning{\@classname}{You do not
     have the zi4 package installed.  Please upgrade your
-    TeX}\@ACM@newfontsfalse}
-\IfFileExists{newtxmath.sty}{}{\ClassWarning{\@classname}{You do not
-    have the newtxmath package installed.  Please upgrade your
     TeX}\@ACM@newfontsfalse}
 %    \end{macrocode}
 %
@@ -2789,12 +2785,12 @@ Computing Machinery]
 % problems with \cs{l} in OT1}%
 % \changes{v1.33}{2017/03/12}{Switched to Type~1 fonts for libertine
 % even if OTF-capable engine is used (Kai Mindermann)}
-% We use Libertine throughout.
+% \changes{vM.mm}{2017/09/23}{Change from libertine/newtxmath to stix}
+% We use STIX throughout.
 %    \begin{macrocode}
 \if@ACM@newfonts
-\RequirePackage[tt=false, type1=true]{libertine}
+\RequirePackage{stix}
 \RequirePackage[varqu]{zi4}
-\RequirePackage[libertine]{newtxmath}
 \RequirePackage[T1]{fontenc}
 \fi
 %    \end{macrocode}
@@ -2803,10 +2799,8 @@ Computing Machinery]
 % \changes{v1.46}{2017/08/28}{Workaround for compatibility with fontspec}
 % Libertine defines \cs{liningnums}, which makes |fontspec| unhappy.
 % While we do not use |fontspec|, some users do.
+% \changes{vM.mm}{2017/09/23}{Change from libertine/newtxmath to stix}
 %    \begin{macrocode}
-\let\liningnums\@undefined
-\AtEndPreamble{%
-  \DeclareTextFontCommand{\liningnums}{\libertineLF}}
 %    \end{macrocode}
 %
 % \end{macro}
